@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     icons: {
-        paddingRight: theme.spacing(3),
+        paddingRight: theme.spacing(6),
     },
     logo: {
         height: 25
@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
         border: '1px solid #9e9e9e',
         flex: 1
 
+    },
+    switch: {
+        marginRight: theme.spacing(10)
     }
 }));
 
@@ -75,7 +78,7 @@ export default function TopBar({ darkMode, setDarkMode }) {
 
                     <Input
                         disableUnderline={true}
-                        placeholder="Pesquisar..."
+                        placeholder="  Pesquisar..."
                         classes={{ root: theme.palette.type === "light" ? classes.input : classes.inputDark }}
                     ></Input>
                     <IconButton type="submit" className={classes.iconButton} aria-label="search">
@@ -84,9 +87,9 @@ export default function TopBar({ darkMode, setDarkMode }) {
 
                     <div className={classes.root}></div>
                     <Switch
+                        className={classes.switch}
                         value={darkMode}
                         onChange={() => setDarkMode(!darkMode)}
-                        className={classes.icons}
                     />
                     <IconButton className={classes.icons} edge="start" aria-label="menu">
                         <VideoCall />
@@ -98,7 +101,7 @@ export default function TopBar({ darkMode, setDarkMode }) {
                     <IconButton className={classes.icons} edge="start" aria-label="menu">
                         <Notifications />
                     </IconButton>
-                    <Avatar></Avatar>
+                    <Avatar src={'/images/pp.jpg'}></Avatar>
                 </Toolbar>
 
             </AppBar>

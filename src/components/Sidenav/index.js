@@ -34,6 +34,18 @@ import Feedback from '@material-ui/icons/Feedback';
 
 
 const useStyles = makeStyles((theme) => ({
+    '@global': {
+        '*::-webkit-scrollbar': {
+            width: '0.2em'
+        },
+        '*::-webkit-scrollbar-track': {
+            '-webkit-box-shadow': 'inset 0 0 6px rgba(0,0,0,0.00)'
+        },
+        '*::-webkit-scrollbar-thumb': {
+            backgroundColor: 'rgba(0,0,0,.1)',
+            outline: '1px solid #fff'
+        }
+    },
     root: {
     },
     drawer: {
@@ -42,12 +54,19 @@ const useStyles = makeStyles((theme) => ({
         padding: 10
     },
     drawerPaper: {
-        width: drawerWidth,
+        width: 260,
         borderRight: 'none',
-        flexShrink: 0
+        flexShrink: 0,
+        padding: 0,
     },
+
+
+
     drawerContainer: {
         overflow: 'auto',
+        display: '',
+
+
     },
     listItemText: {
         fontSize: 14,
@@ -93,7 +112,9 @@ export default function SideNav() {
             <Hidden>
                 <Drawer
 
-                    SlideProps={{ direction: 'right' }}
+                    appear={false}
+                    PaperProps={{ 'variant': 'elevation' }}
+                    SlideProps={{ 'in': false, 'timeout': 3000 }}
                     className={classes.drawer}
                     variant="permanent"
                     classes={{

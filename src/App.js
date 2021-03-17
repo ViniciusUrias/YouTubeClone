@@ -9,6 +9,19 @@ function App() {
   const [darkMode, setDarkMode] = useState(false);
 
   const theme = createMuiTheme({
+    overrides: {
+      MuiCssBaseline: {
+        '@global': {
+          '*': {
+            'scrollbarWidth': 'thin',
+          },
+          '*::-webkit-scrollbar': {
+            display: 'none',
+
+          },
+        },
+      },
+    },
     spacing: 4,
     palette: {
       type: darkMode ? 'dark' : 'light',
